@@ -1,5 +1,5 @@
 function! neoformat#formatters#python#enabled() abort
-    return ['yapf', 'autopep8', 'black', 'isort', 'docformatter', 'autoflake']
+    return ['yapf', 'autopep8', 'black', 'isort', 'docformatter', 'pyment', 'pydevf', 'ruff']
 endfunction
 
 function! neoformat#formatters#python#yapf() abort
@@ -26,13 +26,6 @@ function! neoformat#formatters#python#isort() abort
                 \ }
 endfunction
 
-function! neoformat#formatters#python#autoflake() abort
-    return {
-                \ 'exe': 'autoflake',
-                \ 'args': ['--in-place', '--remove-duplicate-keys', '--expand-star-imports'],
-                \ 'stdin': 0,
-                \ }
-endfunction
 
 function! neoformat#formatters#python#docformatter() abort
     return {
@@ -63,5 +56,13 @@ function! neoformat#formatters#python#pydevf() abort
     return {
                 \ 'exe': 'pydevf',
                 \ 'replace': 1,
+                \ }
+endfunction
+
+function! neoformat#formatters#python#ruff() abort
+    return {
+                \ 'exe': 'ruff',
+                \ 'stdin': 1,
+                \ 'args': ['format', '-q', '-'],
                 \ }
 endfunction
