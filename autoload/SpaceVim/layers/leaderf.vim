@@ -60,7 +60,7 @@ function! SpaceVim#layers#leaderf#plugins() abort
   call add(plugins, [g:_spacevim_root_dir . 'bundle/neoyank.vim',        { 'merged' : 0}])
 
   " use this repo unicode data
-  call add(plugins, ['SpaceVim/Unite-sources', {'merged' : 0}])
+  call add(plugins, [g:_spacevim_root_dir . 'bundle/unite-sources', {'merged' : 0}])
   " snippet
   if g:spacevim_snippet_engine ==# 'neosnippet'
     call add(plugins,  [g:_spacevim_root_dir . 'bundle/LeaderF-neosnippet', {
