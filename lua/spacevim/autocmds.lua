@@ -140,7 +140,9 @@ function M.init()
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#mapping#space#refrashLSPC']()
+      vim.schedule(function()
+        vim.fn['SpaceVim#mapping#space#refrashLSPC']()
+      end)
     end,
   })
   create_autocmd({ 'VimEnter' }, {
